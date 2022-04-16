@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>VariablesAleatorias</RootNamespace>
     <AssemblyName>VariablesAleatorias</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -58,11 +58,20 @@
     <Compile Include="Formularios\Generador_Uniforme.Designer.cs">
       <DependentUpon>Generador_Uniforme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Generador_Variable_Exponencial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Generador_Variable_Exponencial.Designer.cs">
+      <DependentUpon>Generador_Variable_Exponencial.cs</DependentUpon>
+    </Compile>
     <Compile Include="nro\NextDouble.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\Generador_Uniforme.resx">
       <DependentUpon>Generador_Uniforme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Generador_Variable_Exponencial.resx">
+      <DependentUpon>Generador_Variable_Exponencial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
