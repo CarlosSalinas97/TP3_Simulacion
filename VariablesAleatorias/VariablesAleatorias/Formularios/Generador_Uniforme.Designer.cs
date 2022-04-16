@@ -35,11 +35,11 @@ namespace VariablesAleatorias.Formularios
             this.txt_limite_superior = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.grilla_uniforme = new System.Windows.Forms.DataGridView();
-            this.txt_muestra = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_muestra = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btn_generar_uniforme = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grilla_uniforme)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +70,7 @@ namespace VariablesAleatorias.Formularios
             this.txt_limite_inferior.Location = new System.Drawing.Point(144, 92);
             this.txt_limite_inferior.Name = "txt_limite_inferior";
             this.txt_limite_inferior.Size = new System.Drawing.Size(68, 23);
-            this.txt_limite_inferior.TabIndex = 2;
+            this.txt_limite_inferior.TabIndex = 1;
             // 
             // txt_limite_superior
             // 
@@ -78,7 +78,7 @@ namespace VariablesAleatorias.Formularios
             this.txt_limite_superior.Location = new System.Drawing.Point(144, 146);
             this.txt_limite_superior.Name = "txt_limite_superior";
             this.txt_limite_superior.Size = new System.Drawing.Size(68, 23);
-            this.txt_limite_superior.TabIndex = 4;
+            this.txt_limite_superior.TabIndex = 2;
             // 
             // label3
             // 
@@ -102,24 +102,6 @@ namespace VariablesAleatorias.Formularios
             this.grilla_uniforme.Size = new System.Drawing.Size(361, 177);
             this.grilla_uniforme.TabIndex = 6;
             // 
-            // txt_muestra
-            // 
-            this.txt_muestra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_muestra.Location = new System.Drawing.Point(141, 199);
-            this.txt_muestra.Name = "txt_muestra";
-            this.txt_muestra.Size = new System.Drawing.Size(68, 23);
-            this.txt_muestra.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(68, 199);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 17);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Muestra";
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Muestra";
@@ -138,13 +120,31 @@ namespace VariablesAleatorias.Formularios
             this.Column3.Name = "Column3";
             this.Column3.Width = 140;
             // 
+            // txt_muestra
+            // 
+            this.txt_muestra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_muestra.Location = new System.Drawing.Point(141, 199);
+            this.txt_muestra.Name = "txt_muestra";
+            this.txt_muestra.Size = new System.Drawing.Size(68, 23);
+            this.txt_muestra.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(68, 199);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Muestra";
+            // 
             // btn_generar_uniforme
             // 
             this.btn_generar_uniforme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_generar_uniforme.Location = new System.Drawing.Point(24, 257);
             this.btn_generar_uniforme.Name = "btn_generar_uniforme";
             this.btn_generar_uniforme.Size = new System.Drawing.Size(93, 48);
-            this.btn_generar_uniforme.TabIndex = 9;
+            this.btn_generar_uniforme.TabIndex = 4;
             this.btn_generar_uniforme.Text = "Generar";
             this.btn_generar_uniforme.UseVisualStyleBackColor = true;
             this.btn_generar_uniforme.Click += new System.EventHandler(this.btn_generar_uniforme_Click);

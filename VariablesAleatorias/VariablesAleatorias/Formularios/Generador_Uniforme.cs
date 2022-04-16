@@ -27,6 +27,7 @@ namespace VariablesAleatorias.Formularios
 
         public void agregarFilaAGrilla()
         {
+            grilla_uniforme.Rows.Clear();
             double[] vector = new Double[int.Parse(txt_muestra.Text)];
             double x = 0;
 
@@ -39,9 +40,8 @@ namespace VariablesAleatorias.Formularios
 
                 vector[i] = x;
                 grilla_uniforme.Rows.Add( i+1, rnd, vector[i] );
+                grilla_uniforme.Refresh();
             }
-            
-
         }
 
      
