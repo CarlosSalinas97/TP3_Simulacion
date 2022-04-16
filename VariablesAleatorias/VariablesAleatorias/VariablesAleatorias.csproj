@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Generador_Normal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Generador_Normal.Designer.cs">
+      <DependentUpon>Generador_Normal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Generador_Uniforme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     <Compile Include="nro\NextDouble.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Generador_Normal.resx">
+      <DependentUpon>Generador_Normal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Generador_Uniforme.resx">
       <DependentUpon>Generador_Uniforme.cs</DependentUpon>
     </EmbeddedResource>
