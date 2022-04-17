@@ -17,7 +17,8 @@ namespace VariablesAleatorias
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Generador_Uniforme());
+            //Application.Run(new Generador_Uniforme());
+            Application.Run(new Generador_Variable_Exponencial());
         }
     }
 }
