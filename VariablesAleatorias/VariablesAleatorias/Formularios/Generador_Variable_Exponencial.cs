@@ -12,6 +12,8 @@ namespace VariablesAleatorias.Formularios
 {
     public partial class Generador_Variable_Exponencial : Form
     {
+        private double[] vector;
+
         public Generador_Variable_Exponencial()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace VariablesAleatorias.Formularios
 
         public void agregarFilaAGrilla()
         {
-            double[] vector = new Double[int.Parse(txt_muestra_exp.Text)];
+            vector = new Double[int.Parse(txt_muestra_exp.Text)];
             double x = 0;
 
             for (int i = 0; i < int.Parse(txt_muestra_exp.Text); i++)
@@ -34,7 +36,7 @@ namespace VariablesAleatorias.Formularios
                     double rnd = generarNroAleatorio();
                     x = (-1 / double.Parse(txt_lambda_exp.Text)) * (Math.Log10(1 - rnd));
                     vector[i] = x;
-                    grilla_exponencial.Rows.Add(rnd, (Math.Truncate(vector[i] * 10000) / 10000));
+                    grilla_exponencial.Rows.Add((i+1),rnd, (Math.Truncate(vector[i] * 10000) / 10000));
                     grilla_exponencial.Refresh();
 
                 }
@@ -45,7 +47,7 @@ namespace VariablesAleatorias.Formularios
                     double lbd = (1 / double.Parse(txt_media_exp.Text));
                     x = (-1 / lbd) * (Math.Log10(1 - rnd));
                     vector[i] = x;
-                    grilla_exponencial.Rows.Add(rnd, (Math.Truncate(vector[i] * 10000) / 10000));
+                    grilla_exponencial.Rows.Add((i + 1), rnd, (Math.Truncate(vector[i] * 10000) / 10000));
                     grilla_exponencial.Refresh();
 
                 }
@@ -90,6 +92,13 @@ namespace VariablesAleatorias.Formularios
             }
 
             else { agregarFilaAGrilla(); }
+        }
+
+        private void btn_histograma_exp_Click(object sender, EventArgs e)
+        {
+            PopUp_Intervalos popUpForm = new PopUp_Intervalos();
+            popUpForm.serie_generada = vector;
+            popUpForm.Show();
         }
     }
 }

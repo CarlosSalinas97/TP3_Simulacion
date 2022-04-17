@@ -40,7 +40,9 @@ namespace VariablesAleatorias.Formularios
             this.grilla_exponencial = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_generar_exp = new System.Windows.Forms.Button();
+            this.btn_histograma_exp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grilla_exponencial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,22 +128,29 @@ namespace VariablesAleatorias.Formularios
             this.grilla_exponencial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grilla_exponencial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.Column3});
             this.grilla_exponencial.Location = new System.Drawing.Point(217, 168);
             this.grilla_exponencial.Name = "grilla_exponencial";
-            this.grilla_exponencial.Size = new System.Drawing.Size(273, 150);
+            this.grilla_exponencial.Size = new System.Drawing.Size(351, 150);
             this.grilla_exponencial.TabIndex = 16;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "RND";
+            this.Column1.HeaderText = "MUESTRA";
             this.Column1.Name = "Column1";
+            this.Column1.Width = 80;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "NRO GENERADO";
+            this.Column2.HeaderText = "RND";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 130;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "NRO GENERADO";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 130;
             // 
             // btn_generar_exp
             // 
@@ -154,11 +163,23 @@ namespace VariablesAleatorias.Formularios
             this.btn_generar_exp.UseVisualStyleBackColor = true;
             this.btn_generar_exp.Click += new System.EventHandler(this.btn_generar_exp_Click);
             // 
+            // btn_histograma_exp
+            // 
+            this.btn_histograma_exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_histograma_exp.Location = new System.Drawing.Point(39, 364);
+            this.btn_histograma_exp.Name = "btn_histograma_exp";
+            this.btn_histograma_exp.Size = new System.Drawing.Size(114, 50);
+            this.btn_histograma_exp.TabIndex = 18;
+            this.btn_histograma_exp.Text = "Histograma";
+            this.btn_histograma_exp.UseVisualStyleBackColor = true;
+            this.btn_histograma_exp.Click += new System.EventHandler(this.btn_histograma_exp_Click);
+            // 
             // Generador_Variable_Exponencial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 400);
+            this.ClientSize = new System.Drawing.Size(668, 426);
+            this.Controls.Add(this.btn_histograma_exp);
             this.Controls.Add(this.btn_generar_exp);
             this.Controls.Add(this.grilla_exponencial);
             this.Controls.Add(this.cmb_exponencial);
@@ -190,8 +211,10 @@ namespace VariablesAleatorias.Formularios
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmb_exponencial;
         private System.Windows.Forms.DataGridView grilla_exponencial;
+        private System.Windows.Forms.Button btn_generar_exp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Button btn_generar_exp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button btn_histograma_exp;
     }
 }
