@@ -13,7 +13,7 @@ namespace VariablesAleatorias.Formularios
 {
     public partial class Generador_Uniforme : Form
     {
-        
+        private double[] vector;
 
         public Generador_Uniforme()
         {
@@ -22,15 +22,16 @@ namespace VariablesAleatorias.Formularios
 
         private void Generador_Uniforme_Load(object sender, EventArgs e)
         {
-            
+            btn_histograma.Enabled = false;
         }
 
         public void agregarFilaAGrilla()
         {
+            btn_histograma.Enabled = false;
             grilla_uniforme.Rows.Clear();
-            double[] vector = new Double[int.Parse(txt_muestra.Text)];
+            vector = new Double[int.Parse(txt_muestra.Text)];
             double x = 0;
-
+            Cursor.Current = Cursors.WaitCursor;
 
             for (int i = 0; i < int.Parse(txt_muestra.Text); i++)
             {
@@ -42,6 +43,8 @@ namespace VariablesAleatorias.Formularios
                 grilla_uniforme.Rows.Add( i+1, rnd, vector[i] );
                 grilla_uniforme.Refresh();
             }
+            btn_histograma.Enabled = true;
+            Cursor.Current = Cursors.Default;
         }
 
      
@@ -58,6 +61,13 @@ namespace VariablesAleatorias.Formularios
         private void btn_generar_uniforme_Click(object sender, EventArgs e)
         {
             agregarFilaAGrilla();
+        }
+
+        private void btn_histograma_Click(object sender, EventArgs e)
+        {
+            PopUp_Intervalos popUpForm = new PopUp_Intervalos();
+            popUpForm.serie_generada = vector;
+            popUpForm.Show();
         }
     }
 }
