@@ -16,6 +16,7 @@ namespace VariablesAleatorias.Formularios
         double desviacion;
         int muestra;
         private static Random rnd = new Random();
+        double[] vector;
 
         public Generador_Normal()
         {
@@ -32,6 +33,8 @@ namespace VariablesAleatorias.Formularios
 
         public void generarNormal(double media, double desviacion, int n)
         {
+            vector = new double[n];
+
             for (int i = 0; i < n; i++)
             {
                 double aux1 = (Math.Truncate(rnd.NextDouble() * 10000) / 10000);
@@ -41,13 +44,15 @@ namespace VariablesAleatorias.Formularios
 
                 double z2 = Math.Sqrt(-2 * Math.Log(aux1)) * (Math.Cos(2 * Math.PI * aux2));
 
-                if (i % 2 == 0)
+                if (i % 2 == 0) //Condicion para utiizar la funcion con seno o coseno
                 {
                     grilla_normal.Rows.Add(i, aux1 + "/" + aux2, Math.Truncate(z * 10000) / 10000);
+                    vector[i] = Math.Truncate(z * 10000) / 10000;
                 }
                 else
                 {
                     grilla_normal.Rows.Add(i, aux1 + "/" + aux2, Math.Truncate(z2 * 10000) / 10000);
+                    vector[i] = Math.Truncate(z2 * 10000) / 10000;
                 }
 
                 //double rndNormal = media + desviacion * (z);  
@@ -62,6 +67,13 @@ namespace VariablesAleatorias.Formularios
             muestra = int.Parse(txt_muestra.Text);
 
             generarNormal(media, desviacion, muestra);
+        }
+
+        private void btnHistograma_Click(object sender, EventArgs e)
+        {
+            PopUp_Intervalos popUpForm = new PopUp_Intervalos();
+            popUpForm.serie_generada = vector;
+            popUpForm.Show();
         }
     }
 }
