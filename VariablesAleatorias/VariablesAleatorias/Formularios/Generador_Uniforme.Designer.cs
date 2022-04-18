@@ -41,6 +41,7 @@ namespace VariablesAleatorias.Formularios
             this.txt_muestra = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_generar_uniforme = new System.Windows.Forms.Button();
+            this.btn_histograma = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grilla_uniforme)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +102,7 @@ namespace VariablesAleatorias.Formularios
             this.grilla_uniforme.Name = "grilla_uniforme";
             this.grilla_uniforme.Size = new System.Drawing.Size(361, 177);
             this.grilla_uniforme.TabIndex = 6;
+            this.grilla_uniforme.TabStop = false;
             // 
             // Column1
             // 
@@ -149,11 +151,23 @@ namespace VariablesAleatorias.Formularios
             this.btn_generar_uniforme.UseVisualStyleBackColor = true;
             this.btn_generar_uniforme.Click += new System.EventHandler(this.btn_generar_uniforme_Click);
             // 
+            // btn_histograma
+            // 
+            this.btn_histograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_histograma.Location = new System.Drawing.Point(123, 257);
+            this.btn_histograma.Name = "btn_histograma";
+            this.btn_histograma.Size = new System.Drawing.Size(134, 48);
+            this.btn_histograma.TabIndex = 5;
+            this.btn_histograma.Text = "Histograma";
+            this.btn_histograma.UseVisualStyleBackColor = true;
+            this.btn_histograma.Click += new System.EventHandler(this.btn_histograma_Click);
+            // 
             // Generador_Uniforme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 333);
+            this.Controls.Add(this.btn_histograma);
             this.Controls.Add(this.btn_generar_uniforme);
             this.Controls.Add(this.txt_muestra);
             this.Controls.Add(this.label4);
@@ -187,5 +201,6 @@ namespace VariablesAleatorias.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btn_generar_uniforme;
+        private System.Windows.Forms.Button btn_histograma;
     }
 }

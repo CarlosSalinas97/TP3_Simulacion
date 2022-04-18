@@ -40,6 +40,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnHistograma = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grilla_normal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,9 +81,9 @@
             this.Muestra.AutoSize = true;
             this.Muestra.Location = new System.Drawing.Point(31, 169);
             this.Muestra.Name = "Muestra";
-            this.Muestra.Size = new System.Drawing.Size(60, 13);
+            this.Muestra.Size = new System.Drawing.Size(45, 13);
             this.Muestra.TabIndex = 4;
-            this.Muestra.Text = "Desviacion";
+            this.Muestra.Text = "Muestra";
             // 
             // txt_muestra
             // 
@@ -141,11 +142,22 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Generador Normal";
             // 
+            // btnHistograma
+            // 
+            this.btnHistograma.Location = new System.Drawing.Point(34, 252);
+            this.btnHistograma.Name = "btnHistograma";
+            this.btnHistograma.Size = new System.Drawing.Size(75, 23);
+            this.btnHistograma.TabIndex = 10;
+            this.btnHistograma.Text = "Histograma";
+            this.btnHistograma.UseVisualStyleBackColor = true;
+            this.btnHistograma.Click += new System.EventHandler(this.btnHistograma_Click);
+            // 
             // Generador_Normal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 274);
+            this.ClientSize = new System.Drawing.Size(661, 307);
+            this.Controls.Add(this.btnHistograma);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.grilla_normal);
@@ -178,5 +190,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnHistograma;
     }
 }
