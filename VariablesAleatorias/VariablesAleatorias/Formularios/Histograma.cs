@@ -9,13 +9,15 @@ namespace VariablesAleatorias.Formularios
 {
     public partial class Histograma : Form
     {
+        private string generador;
         public int intervalos_seleccionado;
         public double[] serie_generada;
         private List<int> serie_por_intervalos;
         private double[] intervalos;
 
-        public Histograma()
+        public Histograma(string generador_seleccionado)
         {
+            generador = generador_seleccionado.Trim();
             InitializeComponent();
         }
 
@@ -24,28 +26,20 @@ namespace VariablesAleatorias.Formularios
             serie_por_intervalos = new List<int>(new int[intervalos_seleccionado]);
             asignar_intervalos();
 
-            double frecuencia_esperada = serie_generada.Length / intervalos_seleccionado;
-
-            for (int i = 0; i < intervalos.Length; i++)
+            switch (generador)
             {
-                //Carga el grafico de barra para las frecuencias observadas FO.
-                chart1.Series["FO"].Points.AddXY(intervalos[i].ToString(), serie_por_intervalos[i].ToString());
-                chart1.Series["FO"].Points[i].Label = serie_por_intervalos[i].ToString();
+                case "uniforme":
+                    histograma_uniforme();
+                    break;
+                case "normal":
+                    histograma_normal();
+                    break;
+                case "exponencial":
+                    histograma_exponencial();
+                    break;
             }
-            
-            // Genera la linea que marca la frecuencia esperada FE
-            StripLine linea = new StripLine
-            {
-                Interval = 0,
-                IntervalOffset = frecuencia_esperada,
-                StripWidth = frecuencia_esperada * 0.01 > 0.1 ? frecuencia_esperada * 0.01 : 0.1,
-                BackColor = Color.Red,
-                Text = "FE = " + frecuencia_esperada
-
-            };
-            chart1.ChartAreas[0].AxisY.StripLines.Add(linea);
-
         }
+
         //Obtiene la FO de cada valor de la serie y lo asigna a la lista 'serie_por_intervalos'.
         private void asignar_intervalos()
         {
@@ -94,6 +88,40 @@ namespace VariablesAleatorias.Formularios
         private double limitar_4_decimales(double valor)
         {
             return Math.Truncate(valor * 10000) / 10000;
+        }
+
+        private void histograma_uniforme()
+        {
+            double frecuencia_esperada = serie_generada.Length / intervalos_seleccionado;
+
+            for (int i = 0; i < intervalos.Length; i++)
+            {
+                //Carga el grafico de barra para las frecuencias observadas FO.
+                chart1.Series["FO"].Points.AddXY(intervalos[i].ToString(), serie_por_intervalos[i].ToString());
+                chart1.Series["FO"].Points[i].Label = serie_por_intervalos[i].ToString();
+            }
+
+            // Genera la linea que marca la frecuencia esperada FE
+            StripLine linea = new StripLine
+            {
+                Interval = 0,
+                IntervalOffset = frecuencia_esperada,
+                StripWidth = frecuencia_esperada * 0.01 > 0.1 ? frecuencia_esperada * 0.01 : 0.1,
+                BackColor = Color.Red,
+                Text = "FE = " + frecuencia_esperada
+
+            };
+            chart1.ChartAreas[0].AxisY.StripLines.Add(linea);
+        }
+
+        private void histograma_normal()
+        {
+
+        }
+
+        private void histograma_exponencial()
+        {
+
         }
     }
 }

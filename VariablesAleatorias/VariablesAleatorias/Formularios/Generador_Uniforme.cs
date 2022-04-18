@@ -71,7 +71,7 @@ namespace VariablesAleatorias.Formularios
 
         private void btn_histograma_Click(object sender, EventArgs e)
         {
-            PopUp_Intervalos popUpForm = new PopUp_Intervalos();
+            PopUp_Intervalos popUpForm = new PopUp_Intervalos("uniforme");
             popUpForm.serie_generada = vector;
             popUpForm.Show();
         }

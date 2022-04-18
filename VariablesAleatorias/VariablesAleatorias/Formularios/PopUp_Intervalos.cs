@@ -13,11 +13,13 @@ namespace VariablesAleatorias.Formularios
     public partial class PopUp_Intervalos : Form
     {
         private int intervalos_seleccionado;
+        private string generador;
         public double[] serie_generada;
 
-        public PopUp_Intervalos()
+        public PopUp_Intervalos(string generador_seleccionado)
         {
             InitializeComponent();
+            generador = generador_seleccionado;
         }
 
         private void PopUp_Intervalos_Load(object sender, EventArgs e)
@@ -36,7 +38,7 @@ namespace VariablesAleatorias.Formularios
 
         private void btn_Continuar_Click(object sender, EventArgs e)
         {
-            Histograma formHistograma = new Histograma();
+            Histograma formHistograma = new Histograma(generador);
             formHistograma.intervalos_seleccionado = intervalos_seleccionado;
             formHistograma.serie_generada = serie_generada;
             formHistograma.Show();
