@@ -59,12 +59,6 @@
     <Compile Include="Formularios\Generador_Normal.Designer.cs">
       <DependentUpon>Generador_Normal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\Generador_Uniforme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,9 +88,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\Generador_Normal.resx">
       <DependentUpon>Generador_Normal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Generador_Uniforme.resx">
       <DependentUpon>Generador_Uniforme.cs</DependentUpon>

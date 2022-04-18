@@ -25,6 +25,7 @@ namespace VariablesAleatorias.Formularios
 
         private void Generador_Normal_Load(object sender, EventArgs e)
         {
+            btn_histograma.Enabled = false;
             txt_media.Text = "0";
             txt_desviacion.Text = "1";
             txt_muestra.Text = "5";
@@ -55,25 +56,37 @@ namespace VariablesAleatorias.Formularios
                     vector[i] = Math.Truncate(z2 * 10000) / 10000;
                 }
 
+                btn_histograma.Enabled = true;
+
                 //double rndNormal = media + desviacion * (z);  
             }
         }
 
-        private void btnGenerar_Click(object sender, EventArgs e)
+        private void btn_generar_Click(object sender, EventArgs e)
         {
-            grilla_normal.Rows.Clear();
-            media = double.Parse(txt_media.Text);
-            desviacion = double.Parse(txt_desviacion.Text);
-            muestra = int.Parse(txt_muestra.Text);
+            if (string.IsNullOrEmpty(txt_desviacion.Text) || string.IsNullOrEmpty(txt_media.Text) || string.IsNullOrEmpty(txt_muestra.Text)) {
+                MessageBox.Show("Uno de los parámetros está vacío.");
+            } else
+            {
+                grilla_normal.Rows.Clear();
+                media = double.Parse(txt_media.Text);
+                desviacion = double.Parse(txt_desviacion.Text);
+                muestra = int.Parse(txt_muestra.Text);
 
-            generarNormal(media, desviacion, muestra);
+                generarNormal(media, desviacion, muestra);
+            }
         }
 
-        private void btnHistograma_Click(object sender, EventArgs e)
+        private void btn_histograma_Click(object sender, EventArgs e)
         {
             PopUp_Intervalos popUpForm = new PopUp_Intervalos();
             popUpForm.serie_generada = vector;
             popUpForm.Show();
+        }
+
+        private void btn_volver_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

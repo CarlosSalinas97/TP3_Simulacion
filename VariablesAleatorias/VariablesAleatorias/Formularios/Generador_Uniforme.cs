@@ -60,7 +60,13 @@ namespace VariablesAleatorias.Formularios
 
         private void btn_generar_uniforme_Click(object sender, EventArgs e)
         {
-            agregarFilaAGrilla();
+            if (string.IsNullOrEmpty(txt_limite_inferior.Text) || string.IsNullOrEmpty(txt_limite_superior.Text) || string.IsNullOrEmpty(txt_muestra.Text))
+            {
+                MessageBox.Show("Uno de los parámetros está vacío.");
+            } else
+            {
+                agregarFilaAGrilla();
+            }
         }
 
         private void btn_histograma_Click(object sender, EventArgs e)
@@ -68,6 +74,11 @@ namespace VariablesAleatorias.Formularios
             PopUp_Intervalos popUpForm = new PopUp_Intervalos();
             popUpForm.serie_generada = vector;
             popUpForm.Show();
+        }
+
+        private void btn_Volver_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

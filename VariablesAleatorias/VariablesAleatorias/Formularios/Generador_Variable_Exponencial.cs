@@ -13,6 +13,7 @@ namespace VariablesAleatorias.Formularios
     public partial class Generador_Variable_Exponencial : Form
     {
         private double[] vector;
+        private bool isLambda = false;
 
         public Generador_Variable_Exponencial()
         {
@@ -21,41 +22,47 @@ namespace VariablesAleatorias.Formularios
 
         private void Generador_Variable_Exponencial_Load(object sender, EventArgs e)
         {
-
+            btn_histograma.Enabled = false;
+            cmb_exponencial.SelectedIndex = 0;
+            cmb_exponencial_SelectionChangeCommitted(sender, e);
         }
 
         public void agregarFilaAGrilla()
         {
+            grilla_exponencial.Rows.Clear();
             vector = new Double[int.Parse(txt_muestra_exp.Text)];
             double x = 0;
+            btn_histograma.Enabled = false;
 
-            for (int i = 0; i < int.Parse(txt_muestra_exp.Text); i++)
+            if (string.IsNullOrEmpty(txt_lambda_exp.Text) && string.IsNullOrEmpty(txt_media_exp.Text)) { 
+                MessageBox.Show("Debe seleccionar un parametro.");
+            } else
             {
-                if (txt_lambda_exp.Visible == true && txt_media_exp.Visible == false)
+                for (int i = 0; i < int.Parse(txt_muestra_exp.Text); i++)
                 {
-                    double rnd = generarNroAleatorio();
-                    x = (-1 / double.Parse(txt_lambda_exp.Text)) * (Math.Log10(1 - rnd));
-                    vector[i] = x;
-                    grilla_exponencial.Rows.Add((i+1),rnd, (Math.Truncate(vector[i] * 10000) / 10000));
-                    grilla_exponencial.Refresh();
+                    if (isLambda)
+                    {
+                        double rnd = generarNroAleatorio();
+                        x = (-1 / double.Parse(txt_lambda_exp.Text)) * (Math.Log10(1 - rnd));
+                        vector[i] = x;
+                        grilla_exponencial.Rows.Add((i + 1), rnd, (Math.Truncate(vector[i] * 10000) / 10000));
+                        grilla_exponencial.Refresh();
 
+                    }
+
+                    else
+                    {
+                        double rnd = generarNroAleatorio();
+                        double lbd = (1 / double.Parse(txt_media_exp.Text));
+                        x = (-1 / lbd) * (Math.Log10(1 - rnd));
+                        vector[i] = x;
+                        grilla_exponencial.Rows.Add((i + 1), rnd, (Math.Truncate(vector[i] * 10000) / 10000));
+                        grilla_exponencial.Refresh();
+
+                    }
                 }
-
-                else if (txt_media_exp.Visible == true && txt_lambda_exp.Visible == false)
-                {
-                    double rnd = generarNroAleatorio();
-                    double lbd = (1 / double.Parse(txt_media_exp.Text));
-                    x = (-1 / lbd) * (Math.Log10(1 - rnd));
-                    vector[i] = x;
-                    grilla_exponencial.Rows.Add((i + 1), rnd, (Math.Truncate(vector[i] * 10000) / 10000));
-                    grilla_exponencial.Refresh();
-
-                }
-
-                else { MessageBox.Show("debe seleccionar un parametro"); }
-
+                btn_histograma.Enabled = true;
             }
-
         }
 
         public Double generarNroAleatorio()
@@ -73,22 +80,26 @@ namespace VariablesAleatorias.Formularios
 
             if (selectedItem.ToString() == "media")
             {
-                txt_lambda_exp.Visible = false;
-                txt_media_exp.Visible = true;
+                txt_lambda_exp.Enabled = false;
+                txt_lambda_exp.Clear();
+                txt_media_exp.Enabled = true;
+                isLambda = false;
             }
 
             if (selectedItem.ToString() == "lambda")
             {
-                txt_media_exp.Visible = false;
-                txt_lambda_exp.Visible = true;
+                txt_media_exp.Enabled = false;
+                txt_media_exp.Clear();
+                txt_lambda_exp.Enabled = true;
+                isLambda = true;
             }
         }
 
         private void btn_generar_exp_Click(object sender, EventArgs e)
         {
-            if (txt_muestra_exp.Text == "")
+            if (string.IsNullOrEmpty(txt_muestra_exp.Text))
             {
-                MessageBox.Show("debe especificar la cantidad de numeros a generar");
+                MessageBox.Show("Debe especificar la cantidad de numeros a generar.");
             }
 
             else { agregarFilaAGrilla(); }
@@ -99,6 +110,11 @@ namespace VariablesAleatorias.Formularios
             PopUp_Intervalos popUpForm = new PopUp_Intervalos();
             popUpForm.serie_generada = vector;
             popUpForm.Show();
+        }
+
+        private void btn_volver_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

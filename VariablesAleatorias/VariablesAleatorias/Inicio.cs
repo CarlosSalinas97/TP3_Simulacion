@@ -35,5 +35,10 @@ namespace VariablesAleatorias
             Generador_Variable_Exponencial form_generador_exponencial = new Generador_Variable_Exponencial();
             form_generador_exponencial.Show();
         }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
