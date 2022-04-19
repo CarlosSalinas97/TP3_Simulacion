@@ -38,6 +38,7 @@ namespace VariablesAleatorias.Formularios
 
             for (int i = 0; i < n; i++)
             {
+                progress_bar.Value = (int)(100 / Convert.ToDouble(n) * (i + 1));
                 double aux1 = (Math.Truncate(rnd.NextDouble() * 10000) / 10000);
                 double aux2 = (Math.Truncate(rnd.NextDouble() * 10000) / 10000);
 
@@ -57,7 +58,7 @@ namespace VariablesAleatorias.Formularios
                 }
                 //double rndNormal = media + desviacion * (z);  
             }
-
+            progress_bar.Value = 100;
             btn_histograma.Enabled = true;
             Cursor.Current = Cursors.Default;
         }

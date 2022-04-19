@@ -35,6 +35,7 @@ namespace VariablesAleatorias.Formularios
 
             for (int i = 0; i < int.Parse(txt_muestra.Text); i++)
             {
+                progress_bar.Value = (int) (100 / double.Parse(txt_muestra.Text) * (i + 1));
                 double rnd = generarNroAleatorio();
                 x = double.Parse(txt_limite_inferior.Text) + rnd * ( double.Parse(txt_limite_superior.Text) -
                                  double.Parse(txt_limite_inferior.Text) );
@@ -43,6 +44,7 @@ namespace VariablesAleatorias.Formularios
                 grilla_uniforme.Rows.Add( i+1, rnd, vector[i] );
                 grilla_uniforme.Refresh();
             }
+            progress_bar.Value = 100;
             btn_histograma.Enabled = true;
             Cursor.Current = Cursors.Default;
         }

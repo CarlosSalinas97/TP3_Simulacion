@@ -41,6 +41,7 @@ namespace VariablesAleatorias.Formularios
             {
                 for (int i = 0; i < int.Parse(txt_muestra_exp.Text); i++)
                 {
+                    progress_bar.Value = (int)(100 / double.Parse(txt_muestra_exp.Text) * (i + 1));
                     if (isLambda)
                     {
                         double rnd = generarNroAleatorio();
@@ -62,6 +63,7 @@ namespace VariablesAleatorias.Formularios
 
                     }
                 }
+                progress_bar.Value = 100;
                 btn_histograma.Enabled = true;
                 Cursor.Current = Cursors.Default;
             }

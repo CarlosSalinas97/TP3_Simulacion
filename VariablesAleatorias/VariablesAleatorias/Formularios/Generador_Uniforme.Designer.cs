@@ -43,6 +43,7 @@ namespace VariablesAleatorias.Formularios
             this.btn_generar_uniforme = new System.Windows.Forms.Button();
             this.btn_histograma = new System.Windows.Forms.Button();
             this.btn_volver = new System.Windows.Forms.Button();
+            this.progress_bar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.grilla_uniforme)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,9 +102,10 @@ namespace VariablesAleatorias.Formularios
             this.Column3});
             this.grilla_uniforme.Location = new System.Drawing.Point(330, 30);
             this.grilla_uniforme.Name = "grilla_uniforme";
-            this.grilla_uniforme.Size = new System.Drawing.Size(372, 275);
+            this.grilla_uniforme.Size = new System.Drawing.Size(372, 285);
             this.grilla_uniforme.TabIndex = 6;
             this.grilla_uniforme.TabStop = false;
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "Muestra";
@@ -143,7 +145,7 @@ namespace VariablesAleatorias.Formularios
             // btn_generar_uniforme
             // 
             this.btn_generar_uniforme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_generar_uniforme.Location = new System.Drawing.Point(12, 257);
+            this.btn_generar_uniforme.Location = new System.Drawing.Point(12, 242);
             this.btn_generar_uniforme.Name = "btn_generar_uniforme";
             this.btn_generar_uniforme.Size = new System.Drawing.Size(100, 50);
             this.btn_generar_uniforme.TabIndex = 4;
@@ -154,7 +156,7 @@ namespace VariablesAleatorias.Formularios
             // btn_histograma
             // 
             this.btn_histograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_histograma.Location = new System.Drawing.Point(118, 257);
+            this.btn_histograma.Location = new System.Drawing.Point(118, 242);
             this.btn_histograma.Name = "btn_histograma";
             this.btn_histograma.Size = new System.Drawing.Size(100, 50);
             this.btn_histograma.TabIndex = 5;
@@ -165,7 +167,7 @@ namespace VariablesAleatorias.Formularios
             // btn_volver
             // 
             this.btn_volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_volver.Location = new System.Drawing.Point(224, 257);
+            this.btn_volver.Location = new System.Drawing.Point(223, 242);
             this.btn_volver.Name = "btn_volver";
             this.btn_volver.Size = new System.Drawing.Size(100, 50);
             this.btn_volver.TabIndex = 6;
@@ -173,11 +175,19 @@ namespace VariablesAleatorias.Formularios
             this.btn_volver.UseVisualStyleBackColor = true;
             this.btn_volver.Click += new System.EventHandler(this.btn_Volver_Click);
             // 
+            // progress_bar
+            // 
+            this.progress_bar.Location = new System.Drawing.Point(12, 298);
+            this.progress_bar.Name = "progress_bar";
+            this.progress_bar.Size = new System.Drawing.Size(311, 17);
+            this.progress_bar.TabIndex = 8;
+            // 
             // Generador_Uniforme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 327);
+            this.Controls.Add(this.progress_bar);
             this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.btn_histograma);
             this.Controls.Add(this.btn_generar_uniforme);
@@ -215,5 +225,6 @@ namespace VariablesAleatorias.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btn_volver;
+        private System.Windows.Forms.ProgressBar progress_bar;
     }
 }
