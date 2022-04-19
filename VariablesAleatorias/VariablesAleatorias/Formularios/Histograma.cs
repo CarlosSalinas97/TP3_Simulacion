@@ -159,7 +159,7 @@ namespace VariablesAleatorias.Formularios
 
             for (int i = 0; i < intervalos.Length; i++)
             {
-                probabilidad_obs[i] = serie_por_intervalos[i] / N;
+                probabilidad_obs[i] = limitar_4_decimales(serie_por_intervalos[i] / N);
                 //Carga el grafico de barra para las frecuencias observadas FO.
                 chart1.Series["FO"].Points.AddXY(marca_clase[i].ToString(), serie_por_intervalos[i].ToString());
                 chart1.Series["FO"].Points[i].Label = serie_por_intervalos[i].ToString();
@@ -206,7 +206,7 @@ namespace VariablesAleatorias.Formularios
 
             for (int i = 0; i < intervalos.Length; i++)
             {
-                probabilidad_obs[i] = serie_por_intervalos[i] / N;
+                probabilidad_obs[i] = limitar_4_decimales(serie_por_intervalos[i] / N);
                 //Carga el grafico de barra para las frecuencias observadas FO.
                 chart1.Series["FO"].Points.AddXY(marca_clase[i].ToString(), serie_por_intervalos[i].ToString());
                 chart1.Series["FO"].Points[i].Label = serie_por_intervalos[i].ToString();
