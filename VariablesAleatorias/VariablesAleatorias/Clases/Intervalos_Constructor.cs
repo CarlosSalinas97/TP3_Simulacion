@@ -13,7 +13,7 @@ namespace VariablesAleatorias.Clases
 
         public string get_intervalo()
         {
-            return "[" + minimo_int + " - " + maximo_int + "]";
+            return "[ " + minimo_int + " - " + maximo_int + " ]";
         }
 
 

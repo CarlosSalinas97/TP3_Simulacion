@@ -148,6 +148,7 @@ namespace VariablesAleatorias.Formularios
 
             };
             chart1.ChartAreas[0].AxisY.StripLines.Add(linea);
+            chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
         }
 
         private void histograma_normal()
@@ -168,6 +169,7 @@ namespace VariablesAleatorias.Formularios
                 probabilidad_esp[i] = limitar_4_decimales(densidad_ajustada);
                 chart1.Series["FE"].Points.AddXY(intervalos[i].ToString(), densidad_ajustada * N);
             }
+            chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
         }
 
         private double distribucion_normal(double marca_clase)
@@ -215,6 +217,7 @@ namespace VariablesAleatorias.Formularios
                 probabilidad_esp[i] = limitar_4_decimales(densidad);
                 chart1.Series["FE"].Points.AddXY(intervalos[i].ToString(), densidad*N);
             }
+            chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 1;
         }
 
         private double densidad_exponencial(double max_intervalo, double min_invertavlo)
