@@ -46,10 +46,13 @@
             series1.Name = "FO";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.Red;
+            series2.MarkerColor = System.Drawing.Color.Red;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
             series2.Name = "FE";
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(776, 426);
+            this.chart1.Size = new System.Drawing.Size(760, 437);
             this.chart1.TabIndex = 0;
             this.chart1.TabStop = false;
             this.chart1.Text = "chart1";
@@ -62,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.chart1);
             this.Name = "Histograma";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

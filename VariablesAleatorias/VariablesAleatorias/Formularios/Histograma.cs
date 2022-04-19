@@ -14,6 +14,8 @@ namespace VariablesAleatorias.Formularios
         public double[] serie_generada;
         private List<int> serie_por_intervalos;
         private double[] intervalos;
+        private double[] intervalos_min;
+        private double[] marca_clase;
 
         public Histograma(string generador_seleccionado)
         {
@@ -25,6 +27,7 @@ namespace VariablesAleatorias.Formularios
         {
             serie_por_intervalos = new List<int>(new int[intervalos_seleccionado]);
             asignar_intervalos();
+            set_marca_clase();
 
             switch (generador)
             {
@@ -67,16 +70,19 @@ namespace VariablesAleatorias.Formularios
             double max = serie_generada.Max();
             double ancho_intervalo = (max - min) / intervalos_seleccionado;
             double[] intervalos = new double[intervalos_seleccionado];
+            intervalos_min = new double[intervalos_seleccionado];
 
             for (int i = 0; i < intervalos_seleccionado; i++)
             {
                 if (i == 0)
                 {// Si es el primer intervalo, suma el minimo + ancho de los intervalos.
                     intervalos[i] = limitar_4_decimales(min + ancho_intervalo);
+                    intervalos_min[i] = min; 
                 }
                 else
                 {// Si es cualquier otro intervalo, suma el max anterior + ancho de los intervalos + 0.0001 (Para ajustar y tomar todos los valores).
                     intervalos[i] = limitar_4_decimales(intervalos[i-1] + ancho_intervalo + 0.0001);
+                    intervalos_min[i] = intervalos[i-1] + 0.0001;
                 }
 
             }
@@ -88,6 +94,15 @@ namespace VariablesAleatorias.Formularios
         private double limitar_4_decimales(double valor)
         {
             return Math.Truncate(valor * 10000) / 10000;
+        }
+
+        private void set_marca_clase()
+        {
+            marca_clase = new double[intervalos.Length];
+            for (int i = 0; i < intervalos.Length; i++)
+            {
+                marca_clase[i] = ((intervalos[i] - intervalos_min[i]) / 2) + intervalos_min[i];
+            }
         }
 
         private void histograma_uniforme()
@@ -116,12 +131,85 @@ namespace VariablesAleatorias.Formularios
 
         private void histograma_normal()
         {
+            double densidad_normal = 0.0;
+            double densidad_ajustada = 0.0;
+            int N = serie_generada.Length;
 
+            for (int i = 0; i < intervalos.Length; i++)
+            {
+                //Carga el grafico de barra para las frecuencias observadas FO.
+                chart1.Series["FO"].Points.AddXY(intervalos[i].ToString(), serie_por_intervalos[i].ToString());
+                chart1.Series["FO"].Points[i].Label = serie_por_intervalos[i].ToString();
+                densidad_normal = distribucion_normal(marca_clase[i]);
+                densidad_ajustada = densidad_normal * (intervalos[i] - intervalos_min[i]);
+                chart1.Series["FE"].Points.AddXY(intervalos[i].ToString(), densidad_ajustada * N);
+            }
+        }
+
+        private double distribucion_normal(double marca_clase)
+        {
+            double media = media_serie();
+            double desv_std = desviacion_standar_normal();
+
+            return Math.Pow(Math.E, -0.5 * Math.Pow((marca_clase - media) / desv_std, 2)) / (desv_std * Math.Sqrt(2 * Math.PI));
+        }
+
+        private double desviacion_standar_normal()
+        {
+            return Math.Sqrt(varianza_normal());
+        }
+
+        private double varianza_normal()
+        {
+            double acumulador = 0.0;
+            double media = media_serie();
+
+            for (int i = 0; i < serie_generada.Length; i++)
+            {
+                acumulador = acumulador + Math.Pow(serie_generada[i] - media, 2);
+            }
+            return acumulador / (serie_generada.Length - 1);
         }
 
         private void histograma_exponencial()
         {
+            double max_intervalo;
+            double min_intervalo;
+            double densidad;
+            int N = serie_generada.Length;
 
+            for (int i = 0; i < intervalos.Length; i++)
+            {
+                //Carga el grafico de barra para las frecuencias observadas FO.
+                chart1.Series["FO"].Points.AddXY(intervalos[i].ToString(), serie_por_intervalos[i].ToString());
+                chart1.Series["FO"].Points[i].Label = serie_por_intervalos[i].ToString();
+                max_intervalo = intervalos[i];
+                min_intervalo = intervalos_min[i];
+                densidad = densidad_exponencial(max_intervalo, min_intervalo);
+                chart1.Series["FE"].Points.AddXY(intervalos[i].ToString(), densidad*N);
+            }
+        }
+
+        private double densidad_exponencial(double max_intervalo, double min_invertavlo)
+        {
+            double lambda = 1 / media_serie();
+            double lambda_max = Math.Pow(Math.E, -lambda * max_intervalo);
+            double lambda_min = Math.Pow(Math.E, -lambda * min_invertavlo);
+            return (1 - lambda_max) - (1 - lambda_min);
+        }
+
+        private double media_serie()
+        {
+            double acumulador = 0.0;
+            double media = 0.0;
+
+            for (int i = 0; i < serie_generada.Length; i++)
+            {
+                acumulador = (acumulador + serie_generada[i]);
+            }
+
+            media = acumulador / serie_generada.Length;
+            return media;
         }
     }
 }

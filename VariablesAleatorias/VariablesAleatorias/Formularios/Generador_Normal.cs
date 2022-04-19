@@ -34,16 +34,16 @@ namespace VariablesAleatorias.Formularios
 
         public void generarNormal(double media, double desviacion, int n)
         {
-            vector = new double[n];
+            vector = new double[n];        
 
             for (int i = 0; i < n; i++)
             {
                 double aux1 = (Math.Truncate(rnd.NextDouble() * 10000) / 10000);
                 double aux2 = (Math.Truncate(rnd.NextDouble() * 10000) / 10000);
 
-                double z = Math.Sqrt(-2 * Math.Log(aux1)) * Math.Sin(2 * Math.PI * aux2);
+                double z = ((Math.Sqrt(-2 * Math.Log(aux1)) * Math.Cos(2 * Math.PI * aux2)) * desviacion + media);
 
-                double z2 = Math.Sqrt(-2 * Math.Log(aux1)) * (Math.Cos(2 * Math.PI * aux2));
+                double z2 = ((Math.Sqrt(-2 * Math.Log(aux1)) * Math.Sin(2 * Math.PI * aux2)) * desviacion + media);
 
                 if (i % 2 == 0) //Condicion para utiizar la funcion con seno o coseno
                 {
@@ -55,11 +55,11 @@ namespace VariablesAleatorias.Formularios
                     grilla_normal.Rows.Add(i, aux1 + "/" + aux2, Math.Truncate(z2 * 10000) / 10000);
                     vector[i] = Math.Truncate(z2 * 10000) / 10000;
                 }
-
-                btn_histograma.Enabled = true;
-
                 //double rndNormal = media + desviacion * (z);  
             }
+
+            btn_histograma.Enabled = true;
+            Cursor.Current = Cursors.Default;
         }
 
         private void btn_generar_Click(object sender, EventArgs e)
@@ -72,6 +72,8 @@ namespace VariablesAleatorias.Formularios
                 media = double.Parse(txt_media.Text);
                 desviacion = double.Parse(txt_desviacion.Text);
                 muestra = int.Parse(txt_muestra.Text);
+                btn_histograma.Enabled = false;
+                Cursor.Current = Cursors.WaitCursor;
 
                 generarNormal(media, desviacion, muestra);
             }

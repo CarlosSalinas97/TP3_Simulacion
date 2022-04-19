@@ -33,6 +33,7 @@ namespace VariablesAleatorias.Formularios
             vector = new Double[int.Parse(txt_muestra_exp.Text)];
             double x = 0;
             btn_histograma.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
 
             if (string.IsNullOrEmpty(txt_lambda_exp.Text) && string.IsNullOrEmpty(txt_media_exp.Text)) { 
                 MessageBox.Show("Debe seleccionar un parametro.");
@@ -62,6 +63,7 @@ namespace VariablesAleatorias.Formularios
                     }
                 }
                 btn_histograma.Enabled = true;
+                Cursor.Current = Cursors.Default;
             }
         }
 
