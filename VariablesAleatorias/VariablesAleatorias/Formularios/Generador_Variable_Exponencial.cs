@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VariablesAleatorias.Clases;
 
 namespace VariablesAleatorias.Formularios
 {
@@ -14,6 +15,7 @@ namespace VariablesAleatorias.Formularios
     {
         private double[] vector;
         private bool isLambda = false;
+        private Random random = new Random();
 
         public Generador_Variable_Exponencial()
         {
@@ -28,54 +30,52 @@ namespace VariablesAleatorias.Formularios
         }
 
         public void agregarFilaAGrilla()
-        {
-            grilla_exponencial.Rows.Clear();
-            vector = new Double[int.Parse(txt_muestra_exp.Text)];
-            double x = 0;
+        { 
             btn_histograma.Enabled = false;
+            grilla_exponencial.Rows.Clear();
             Cursor.Current = Cursors.WaitCursor;
+
+            int N = int.Parse(txt_muestra_exp.Text);
+            vector = new double[N];
+            double aux = 0.0;
+            double lambda = 0.0;
+            double media = 0.0;
+
 
             if (string.IsNullOrEmpty(txt_lambda_exp.Text) && string.IsNullOrEmpty(txt_media_exp.Text)) { 
                 MessageBox.Show("Debe seleccionar un parametro.");
             } else
             {
+                if (isLambda)
+                {
+                    lambda = double.Parse(txt_lambda_exp.Text);
+                } else
+                {
+                    media = double.Parse(txt_media_exp.Text);
+                }
+               
                 for (int i = 0; i < int.Parse(txt_muestra_exp.Text); i++)
                 {
                     progress_bar.Value = (int)(100 / double.Parse(txt_muestra_exp.Text) * (i + 1));
+                    double rnd = Decimal_Utils.limitar_4_decimales(random.NextDouble());
+
                     if (isLambda)
                     {
-                        double rnd = generarNroAleatorio();
-                        x = (-1 / double.Parse(txt_lambda_exp.Text)) * (Math.Log10(1 - rnd));
-                        vector[i] = x;
-                        grilla_exponencial.Rows.Add((i + 1), rnd, (Math.Truncate(vector[i] * 10000) / 10000));
-                        grilla_exponencial.Refresh();
-
+                        aux = Decimal_Utils.limitar_4_decimales(-1 / lambda * Math.Log(1 - rnd));
                     }
 
                     else
                     {
-                        double rnd = generarNroAleatorio();
-                        double lbd = (1 / double.Parse(txt_media_exp.Text));
-                        x = (-1 / lbd) * (Math.Log10(1 - rnd));
-                        vector[i] = x;
-                        grilla_exponencial.Rows.Add((i + 1), rnd, (Math.Truncate(vector[i] * 10000) / 10000));
-                        grilla_exponencial.Refresh();
-
+                        aux = Decimal_Utils.limitar_4_decimales(-1 / (1 / media) * Math.Log(1 - rnd));
                     }
+
+                    vector[i] = aux;
+                    grilla_exponencial.Rows.Add((i + 1), rnd, aux);
                 }
                 progress_bar.Value = 100;
                 btn_histograma.Enabled = true;
                 Cursor.Current = Cursors.Default;
             }
-        }
-
-        public Double generarNroAleatorio()
-        {
-            Random nro = new Random();
-            Double rnd;
-
-            rnd = (Math.Truncate(nro.NextDouble() * 10000) / 10000);
-            return rnd;
         }
 
         private void cmb_exponencial_SelectionChangeCommitted(object sender, EventArgs e)

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Decimal_Utils.cs" />
     <Compile Include="Clases\Intervalos_Constructor.cs" />
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>

@@ -14,6 +14,7 @@ namespace VariablesAleatorias.Formularios
     public partial class Generador_Uniforme : Form
     {
         private double[] vector;
+        Random random = new Random();
 
         public Generador_Uniforme()
         {
@@ -29,35 +30,27 @@ namespace VariablesAleatorias.Formularios
         {
             btn_histograma.Enabled = false;
             grilla_uniforme.Rows.Clear();
-            vector = new Double[int.Parse(txt_muestra.Text)];
-            double x = 0;
             Cursor.Current = Cursors.WaitCursor;
 
-            for (int i = 0; i < int.Parse(txt_muestra.Text); i++)
-            {
-                progress_bar.Value = (int) (100 / double.Parse(txt_muestra.Text) * (i + 1));
-                double rnd = generarNroAleatorio();
-                x = double.Parse(txt_limite_inferior.Text) + rnd * ( double.Parse(txt_limite_superior.Text) -
-                                 double.Parse(txt_limite_inferior.Text) );
+            double limite_inferior = double.Parse(txt_limite_inferior.Text);
+            double limite_superior = double.Parse(txt_limite_superior.Text);
+            int N = int.Parse(txt_muestra.Text);
+            vector = new double[N];
+            double aux = 0.0;      
 
-                vector[i] = x;
-                grilla_uniforme.Rows.Add( i+1, rnd, vector[i] );
-                grilla_uniforme.Refresh();
+            for (int i = 0; i < N; i++)
+            {
+                progress_bar.Value = (int) (100 / double.Parse(N.ToString()) * (i + 1));
+                double rnd = Math.Truncate(random.NextDouble() * 10000) / 10000;
+                aux = (limite_superior - limite_inferior) * rnd + limite_inferior;
+                
+                vector[i] = aux;
+                grilla_uniforme.Rows.Add( i+1, rnd, aux);
             }
+
             progress_bar.Value = 100;
             btn_histograma.Enabled = true;
             Cursor.Current = Cursors.Default;
-        }
-
-     
-
-        public Double generarNroAleatorio()
-        {
-            Random nro = new Random();
-            Double rnd;
-
-            rnd = (Math.Truncate(nro.NextDouble() * 10000) / 10000);
-            return rnd;
         }
 
         private void btn_generar_uniforme_Click(object sender, EventArgs e)
