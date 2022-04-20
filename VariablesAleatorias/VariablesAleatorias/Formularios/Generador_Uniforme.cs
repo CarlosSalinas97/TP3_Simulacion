@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VariablesAleatorias.Clases;
 
 
 namespace VariablesAleatorias.Formularios
@@ -41,7 +42,7 @@ namespace VariablesAleatorias.Formularios
             for (int i = 0; i < N; i++)
             {
                 progress_bar.Value = (int) (100 / double.Parse(N.ToString()) * (i + 1));
-                double rnd = Math.Truncate(random.NextDouble() * 10000) / 10000;
+                double rnd = Decimal_Utils.limitar_4_decimales(random.NextDouble());
                 aux = (limite_superior - limite_inferior) * rnd + limite_inferior;
                 
                 vector[i] = aux;
