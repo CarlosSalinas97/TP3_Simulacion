@@ -45,7 +45,7 @@ namespace VariablesAleatorias.Formularios
                 aux = (limite_superior - limite_inferior) * rnd + limite_inferior;
                 
                 vector[i] = aux;
-                grilla_uniforme.Rows.Add( i+1, rnd, aux);
+                grilla_uniforme.Rows.Add(i+1, rnd, aux);
             }
 
             progress_bar.Value = 100;

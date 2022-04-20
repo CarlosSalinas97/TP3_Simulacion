@@ -70,7 +70,7 @@ namespace VariablesAleatorias.Formularios
                     }
 
                     vector[i] = aux;
-                    grilla_exponencial.Rows.Add((i + 1), rnd, aux);
+                    grilla_exponencial.Rows.Add(i + 1, rnd, aux);
                 }
                 progress_bar.Value = 100;
                 btn_histograma.Enabled = true;

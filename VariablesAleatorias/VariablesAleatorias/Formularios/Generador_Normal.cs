@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VariablesAleatorias.Clases;
 
 namespace VariablesAleatorias.Formularios
 {
@@ -15,7 +16,7 @@ namespace VariablesAleatorias.Formularios
         double media;
         double desviacion;
         int muestra;
-        private static Random rnd = new Random();
+        private Random random = new Random();
         double[] vector;
 
         public Generador_Normal()
@@ -29,35 +30,34 @@ namespace VariablesAleatorias.Formularios
             txt_media.Text = "0";
             txt_desviacion.Text = "1";
             txt_muestra.Text = "5";
-            grilla_normal.Refresh();
         }
 
-        public void generarNormal(double media, double desviacion, int n)
+        public void generarNormal()
         {
-            vector = new double[n];        
+            vector = new double[muestra];        
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < muestra; i++)
             {
-                progress_bar.Value = (int)(100 / Convert.ToDouble(n) * (i + 1));
-                double aux1 = (Math.Truncate(rnd.NextDouble() * 10000) / 10000);
-                double aux2 = (Math.Truncate(rnd.NextDouble() * 10000) / 10000);
+                progress_bar.Value = (int)(100 / Convert.ToDouble(muestra) * (i + 1));
 
-                double z = ((Math.Sqrt(-2 * Math.Log(aux1)) * Math.Cos(2 * Math.PI * aux2)) * desviacion + media);
+                double aux1 = Decimal_Utils.limitar_4_decimales(random.NextDouble());
+                double aux2 = Decimal_Utils.limitar_4_decimales(random.NextDouble());
 
-                double z2 = ((Math.Sqrt(-2 * Math.Log(aux1)) * Math.Sin(2 * Math.PI * aux2)) * desviacion + media);
+                aux1 = aux1 == 0 ? 1 : aux1;
+                aux2 = aux2 == 0 ? 1 : aux2;
 
-                if (i % 2 == 0) //Condicion para utiizar la funcion con seno o coseno
-                {
-                    grilla_normal.Rows.Add(i, aux1 + "/" + aux2, Math.Truncate(z * 10000) / 10000);
-                    vector[i] = Math.Truncate(z * 10000) / 10000;
-                }
-                else
-                {
-                    grilla_normal.Rows.Add(i, aux1 + "/" + aux2, Math.Truncate(z2 * 10000) / 10000);
-                    vector[i] = Math.Truncate(z2 * 10000) / 10000;
-                }
-                //double rndNormal = media + desviacion * (z);  
+                double z = Decimal_Utils.limitar_4_decimales(Math.Sqrt(-2 * Math.Log(aux1)) * Math.Sin(2 * Math.PI * aux2) * desviacion + media);
+                double z2 = Decimal_Utils.limitar_4_decimales(Math.Sqrt(-2 * Math.Log(aux1)) * Math.Cos(2 * Math.PI * aux2) * desviacion + media);
+
+                grilla_normal.Rows.Add(i+1, aux1, z);
+                vector[i] = z;
+
+                i++;
+
+                grilla_normal.Rows.Add(i+1, aux2, z2);
+                vector[i] = z2;
             }
+
             progress_bar.Value = 100;
             btn_histograma.Enabled = true;
             Cursor.Current = Cursors.Default;
@@ -69,14 +69,15 @@ namespace VariablesAleatorias.Formularios
                 MessageBox.Show("Uno de los parámetros está vacío.");
             } else
             {
+                btn_histograma.Enabled = false;
+                Cursor.Current = Cursors.WaitCursor;
                 grilla_normal.Rows.Clear();
+
                 media = double.Parse(txt_media.Text);
                 desviacion = double.Parse(txt_desviacion.Text);
                 muestra = int.Parse(txt_muestra.Text);
-                btn_histograma.Enabled = false;
-                Cursor.Current = Cursors.WaitCursor;
-
-                generarNormal(media, desviacion, muestra);
+                
+                generarNormal();
             }
         }
 
