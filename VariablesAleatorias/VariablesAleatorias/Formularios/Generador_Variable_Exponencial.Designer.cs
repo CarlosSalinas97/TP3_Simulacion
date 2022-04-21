@@ -38,9 +38,6 @@ namespace VariablesAleatorias.Formularios
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_exponencial = new System.Windows.Forms.ComboBox();
             this.grilla_exponencial = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_generar = new System.Windows.Forms.Button();
             this.btn_histograma = new System.Windows.Forms.Button();
             this.btn_volver = new System.Windows.Forms.Button();
@@ -128,32 +125,11 @@ namespace VariablesAleatorias.Formularios
             // grilla_exponencial
             // 
             this.grilla_exponencial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grilla_exponencial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
             this.grilla_exponencial.Location = new System.Drawing.Point(346, 12);
             this.grilla_exponencial.Name = "grilla_exponencial";
             this.grilla_exponencial.Size = new System.Drawing.Size(356, 303);
             this.grilla_exponencial.TabIndex = 16;
             this.grilla_exponencial.TabStop = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Muestra";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 80;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "RND";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Numero Exponencial Generado";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 130;
             // 
             // btn_generar
             // 
@@ -236,9 +212,6 @@ namespace VariablesAleatorias.Formularios
         private System.Windows.Forms.DataGridView grilla_exponencial;
         private System.Windows.Forms.Button btn_generar;
         private System.Windows.Forms.Button btn_histograma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.ProgressBar progress_bar;
     }

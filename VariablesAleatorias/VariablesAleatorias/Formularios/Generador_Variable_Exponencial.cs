@@ -16,10 +16,19 @@ namespace VariablesAleatorias.Formularios
         private double[] vector;
         private bool isLambda = false;
         private Random random = new Random();
+        DataTable data_table;
 
         public Generador_Variable_Exponencial()
         {
             InitializeComponent();
+        }
+
+        private void crear_data_table()
+        {
+            data_table = new DataTable();
+            data_table.Columns.Add("Muestra");
+            data_table.Columns.Add("RND");
+            data_table.Columns.Add("Nro exponencial generado");
         }
 
         private void Generador_Variable_Exponencial_Load(object sender, EventArgs e)
@@ -30,10 +39,11 @@ namespace VariablesAleatorias.Formularios
         }
 
         public void agregarFilaAGrilla()
-        { 
+        {
+            crear_data_table();
             btn_histograma.Enabled = false;
-            grilla_exponencial.Rows.Clear();
             Cursor.Current = Cursors.WaitCursor;
+            grilla_exponencial.VirtualMode = true;
 
             int N = int.Parse(txt_muestra_exp.Text);
             vector = new double[N];
@@ -70,8 +80,10 @@ namespace VariablesAleatorias.Formularios
                     }
 
                     vector[i] = aux;
-                    grilla_exponencial.Rows.Add(i + 1, rnd, aux);
+                    data_table.Rows.Add(i + 1, rnd, aux);
                 }
+
+                grilla_exponencial.DataSource = data_table;
                 progress_bar.Value = 100;
                 btn_histograma.Enabled = true;
                 Cursor.Current = Cursors.Default;

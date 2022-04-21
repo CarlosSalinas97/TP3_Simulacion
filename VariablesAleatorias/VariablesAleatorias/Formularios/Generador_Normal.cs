@@ -18,10 +18,19 @@ namespace VariablesAleatorias.Formularios
         int muestra;
         private Random random = new Random();
         double[] vector;
+        DataTable data_table;
 
         public Generador_Normal()
         {
             InitializeComponent();
+        }
+
+        private void crear_data_table()
+        {
+            data_table = new DataTable();
+            data_table.Columns.Add("Muestra");
+            data_table.Columns.Add("RND");
+            data_table.Columns.Add("Nro normal generado");
         }
 
         private void Generador_Normal_Load(object sender, EventArgs e)
@@ -49,15 +58,16 @@ namespace VariablesAleatorias.Formularios
                 double z = Decimal_Utils.limitar_4_decimales(Math.Sqrt(-2 * Math.Log(aux1)) * Math.Sin(2 * Math.PI * aux2) * desviacion + media);
                 double z2 = Decimal_Utils.limitar_4_decimales(Math.Sqrt(-2 * Math.Log(aux1)) * Math.Cos(2 * Math.PI * aux2) * desviacion + media);
 
-                grilla_normal.Rows.Add(i+1, aux1, z);
+                data_table.Rows.Add(i+1, aux1, z);
                 vector[i] = z;
 
                 i++;
 
-                grilla_normal.Rows.Add(i+1, aux2, z2);
+                data_table.Rows.Add(i+1, aux2, z2);
                 vector[i] = z2;
             }
 
+            grilla_normal.DataSource = data_table;
             progress_bar.Value = 100;
             btn_histograma.Enabled = true;
             Cursor.Current = Cursors.Default;
@@ -71,12 +81,13 @@ namespace VariablesAleatorias.Formularios
             {
                 btn_histograma.Enabled = false;
                 Cursor.Current = Cursors.WaitCursor;
-                grilla_normal.Rows.Clear();
 
                 media = double.Parse(txt_media.Text);
                 desviacion = double.Parse(txt_desviacion.Text);
                 muestra = int.Parse(txt_muestra.Text);
-                
+                crear_data_table();
+                grilla_normal.VirtualMode = true;
+
                 generarNormal();
             }
         }

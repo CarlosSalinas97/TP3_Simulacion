@@ -35,9 +35,6 @@ namespace VariablesAleatorias.Formularios
             this.txt_limite_superior = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.grilla_uniforme = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_muestra = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_generar_uniforme = new System.Windows.Forms.Button();
@@ -96,33 +93,11 @@ namespace VariablesAleatorias.Formularios
             // grilla_uniforme
             // 
             this.grilla_uniforme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grilla_uniforme.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
             this.grilla_uniforme.Location = new System.Drawing.Point(330, 30);
             this.grilla_uniforme.Name = "grilla_uniforme";
             this.grilla_uniforme.Size = new System.Drawing.Size(372, 285);
             this.grilla_uniforme.TabIndex = 6;
             this.grilla_uniforme.TabStop = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Muestra";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "RND";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 130;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Numero Uniforme Generado";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 140;
             // 
             // txt_muestra
             // 
@@ -221,9 +196,6 @@ namespace VariablesAleatorias.Formularios
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_generar_uniforme;
         private System.Windows.Forms.Button btn_histograma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.ProgressBar progress_bar;
     }

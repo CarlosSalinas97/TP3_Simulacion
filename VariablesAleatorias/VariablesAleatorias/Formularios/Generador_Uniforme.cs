@@ -16,10 +16,11 @@ namespace VariablesAleatorias.Formularios
     {
         private double[] vector;
         Random random = new Random();
+        DataTable data_table;
 
         public Generador_Uniforme()
         {
-            InitializeComponent();
+            InitializeComponent();   
         }
 
         private void Generador_Uniforme_Load(object sender, EventArgs e)
@@ -27,27 +28,38 @@ namespace VariablesAleatorias.Formularios
             btn_histograma.Enabled = false;
         }
 
+        private void crear_data_table()
+        {
+            data_table = new DataTable();
+            data_table.Columns.Add("Muestra");
+            data_table.Columns.Add("RND");
+            data_table.Columns.Add("Nro uniforme generado");
+        }
+
         public void agregarFilaAGrilla()
         {
+            crear_data_table();
             btn_histograma.Enabled = false;
-            grilla_uniforme.Rows.Clear();
             Cursor.Current = Cursors.WaitCursor;
-
+            grilla_uniforme.VirtualMode = true;
+          
             double limite_inferior = double.Parse(txt_limite_inferior.Text);
             double limite_superior = double.Parse(txt_limite_superior.Text);
             int N = int.Parse(txt_muestra.Text);
             vector = new double[N];
-            double aux = 0.0;      
+            double aux = 0.0;
 
             for (int i = 0; i < N; i++)
             {
                 progress_bar.Value = (int) (100 / double.Parse(N.ToString()) * (i + 1));
                 double rnd = Decimal_Utils.limitar_4_decimales(random.NextDouble());
                 aux = (limite_superior - limite_inferior) * rnd + limite_inferior;
-                
+
+                data_table.Rows.Add(i + 1, rnd, aux);
                 vector[i] = aux;
-                grilla_uniforme.Rows.Add(i+1, rnd, aux);
             }
+
+            grilla_uniforme.DataSource = data_table;
 
             progress_bar.Value = 100;
             btn_histograma.Enabled = true;

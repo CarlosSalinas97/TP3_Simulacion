@@ -35,9 +35,6 @@
             this.Muestra = new System.Windows.Forms.Label();
             this.txt_muestra = new System.Windows.Forms.TextBox();
             this.grilla_normal = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_generar = new System.Windows.Forms.Button();
             this.btn_histograma = new System.Windows.Forms.Button();
@@ -100,33 +97,11 @@
             // grilla_normal
             // 
             this.grilla_normal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grilla_normal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
             this.grilla_normal.Location = new System.Drawing.Point(338, 12);
             this.grilla_normal.Name = "grilla_normal";
             this.grilla_normal.Size = new System.Drawing.Size(364, 303);
             this.grilla_normal.TabIndex = 7;
             this.grilla_normal.TabStop = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Muestra";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "RND";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 130;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Numero Normal Generado";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 140;
             // 
             // label3
             // 
@@ -218,9 +193,6 @@
         private System.Windows.Forms.Button btn_generar;
         private System.Windows.Forms.Button btn_histograma;
         private System.Windows.Forms.Button btn_volver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.ProgressBar progress_bar;
     }
 }
