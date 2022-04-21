@@ -48,95 +48,95 @@ namespace VariablesAleatorias.Formularios
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 40);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(24, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(261, 26);
+            this.label3.Size = new System.Drawing.Size(318, 31);
             this.label3.TabIndex = 5;
             this.label3.Text = "Generador Exponencial";
             // 
             // txt_muestra_exp
             // 
-            this.txt_muestra_exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_muestra_exp.Location = new System.Drawing.Point(168, 209);
+            this.txt_muestra_exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_muestra_exp.Location = new System.Drawing.Point(200, 245);
             this.txt_muestra_exp.Name = "txt_muestra_exp";
-            this.txt_muestra_exp.Size = new System.Drawing.Size(66, 23);
+            this.txt_muestra_exp.Size = new System.Drawing.Size(85, 29);
             this.txt_muestra_exp.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(82, 212);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(78, 247);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 17);
+            this.label4.Size = new System.Drawing.Size(77, 24);
             this.label4.TabIndex = 13;
             this.label4.Text = "Muestra";
             // 
             // txt_media_exp
             // 
-            this.txt_media_exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_media_exp.Location = new System.Drawing.Point(168, 168);
+            this.txt_media_exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_media_exp.Location = new System.Drawing.Point(200, 155);
             this.txt_media_exp.Name = "txt_media_exp";
-            this.txt_media_exp.Size = new System.Drawing.Size(66, 23);
+            this.txt_media_exp.Size = new System.Drawing.Size(85, 29);
             this.txt_media_exp.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(95, 171);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(93, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.Size = new System.Drawing.Size(62, 24);
             this.label2.TabIndex = 11;
             this.label2.Text = "Media";
             // 
             // txt_lambda_exp
             // 
-            this.txt_lambda_exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_lambda_exp.Location = new System.Drawing.Point(168, 131);
+            this.txt_lambda_exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_lambda_exp.Location = new System.Drawing.Point(200, 200);
             this.txt_lambda_exp.Name = "txt_lambda_exp";
-            this.txt_lambda_exp.Size = new System.Drawing.Size(66, 23);
+            this.txt_lambda_exp.Size = new System.Drawing.Size(85, 29);
             this.txt_lambda_exp.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(82, 134);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(77, 203);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 17);
+            this.label1.Size = new System.Drawing.Size(78, 24);
             this.label1.TabIndex = 9;
             this.label1.Text = "Lambda";
             // 
             // cmb_exponencial
             // 
-            this.cmb_exponencial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_exponencial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_exponencial.FormattingEnabled = true;
             this.cmb_exponencial.Items.AddRange(new object[] {
             "media",
             "lambda"});
-            this.cmb_exponencial.Location = new System.Drawing.Point(104, 87);
+            this.cmb_exponencial.Location = new System.Drawing.Point(173, 100);
             this.cmb_exponencial.Name = "cmb_exponencial";
-            this.cmb_exponencial.Size = new System.Drawing.Size(121, 24);
+            this.cmb_exponencial.Size = new System.Drawing.Size(121, 32);
             this.cmb_exponencial.TabIndex = 1;
             this.cmb_exponencial.SelectionChangeCommitted += new System.EventHandler(this.cmb_exponencial_SelectionChangeCommitted);
             // 
             // grilla_exponencial
             // 
             this.grilla_exponencial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grilla_exponencial.Location = new System.Drawing.Point(346, 12);
+            this.grilla_exponencial.Location = new System.Drawing.Point(366, 12);
             this.grilla_exponencial.Name = "grilla_exponencial";
-            this.grilla_exponencial.Size = new System.Drawing.Size(356, 303);
+            this.grilla_exponencial.Size = new System.Drawing.Size(356, 537);
             this.grilla_exponencial.TabIndex = 16;
             this.grilla_exponencial.TabStop = false;
             // 
             // btn_generar
             // 
             this.btn_generar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_generar.Location = new System.Drawing.Point(12, 242);
+            this.btn_generar.Location = new System.Drawing.Point(12, 327);
             this.btn_generar.Name = "btn_generar";
-            this.btn_generar.Size = new System.Drawing.Size(100, 50);
+            this.btn_generar.Size = new System.Drawing.Size(110, 50);
             this.btn_generar.TabIndex = 5;
             this.btn_generar.Text = "Generar";
             this.btn_generar.UseVisualStyleBackColor = true;
@@ -145,9 +145,9 @@ namespace VariablesAleatorias.Formularios
             // btn_histograma
             // 
             this.btn_histograma.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_histograma.Location = new System.Drawing.Point(118, 242);
+            this.btn_histograma.Location = new System.Drawing.Point(128, 327);
             this.btn_histograma.Name = "btn_histograma";
-            this.btn_histograma.Size = new System.Drawing.Size(100, 50);
+            this.btn_histograma.Size = new System.Drawing.Size(116, 50);
             this.btn_histograma.TabIndex = 6;
             this.btn_histograma.Text = "Histograma";
             this.btn_histograma.UseVisualStyleBackColor = true;
@@ -156,9 +156,9 @@ namespace VariablesAleatorias.Formularios
             // btn_volver
             // 
             this.btn_volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_volver.Location = new System.Drawing.Point(224, 242);
+            this.btn_volver.Location = new System.Drawing.Point(250, 327);
             this.btn_volver.Name = "btn_volver";
-            this.btn_volver.Size = new System.Drawing.Size(100, 50);
+            this.btn_volver.Size = new System.Drawing.Size(110, 50);
             this.btn_volver.TabIndex = 7;
             this.btn_volver.Text = "Volver";
             this.btn_volver.UseVisualStyleBackColor = true;
@@ -166,16 +166,16 @@ namespace VariablesAleatorias.Formularios
             // 
             // progress_bar
             // 
-            this.progress_bar.Location = new System.Drawing.Point(12, 298);
+            this.progress_bar.Location = new System.Drawing.Point(12, 383);
             this.progress_bar.Name = "progress_bar";
-            this.progress_bar.Size = new System.Drawing.Size(312, 17);
+            this.progress_bar.Size = new System.Drawing.Size(348, 17);
             this.progress_bar.TabIndex = 17;
             // 
             // Generador_Variable_Exponencial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 327);
+            this.ClientSize = new System.Drawing.Size(734, 561);
             this.Controls.Add(this.progress_bar);
             this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.btn_histograma);
