@@ -58,12 +58,17 @@ namespace VariablesAleatorias.Formularios
                 double z = Decimal_Utils.limitar_4_decimales(Math.Sqrt(-2 * Math.Log(aux1)) * Math.Sin(2 * Math.PI * aux2) * desviacion + media);
                 double z2 = Decimal_Utils.limitar_4_decimales(Math.Sqrt(-2 * Math.Log(aux1)) * Math.Cos(2 * Math.PI * aux2) * desviacion + media);
 
-                data_table.Rows.Add(i+1, aux1, z);
+                data_table.Rows.Add(i+1, aux1.ToString() + '/' + aux2.ToString(), z);
                 vector[i] = z;
+
+                if(i == muestra - 1)
+                {
+                    break;
+                }
 
                 i++;
 
-                data_table.Rows.Add(i+1, aux2, z2);
+                data_table.Rows.Add(i+1, aux1.ToString() + '/' + aux2.ToString(), z2);
                 vector[i] = z2;
             }
 
